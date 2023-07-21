@@ -48,7 +48,7 @@ function Footer() {
     <SMainWrapperFooter>
       <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
         <ColLeft>
-          <SImageHeader src={AmphorLogo} alt='Amphor' />
+          <SImageHeader src={AmphorLogo} alt='Melon' />
           <OText textColor={ETextColor.white} size={ESize.m}>© 2023 Amphor</OText>
         </ColLeft>
       </Flex >

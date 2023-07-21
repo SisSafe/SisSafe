@@ -24,8 +24,8 @@ export const PageSettings: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Amphor</title>
-        <meta name="description" content="Amphor" />
+        <title>Melon</title>
+        <meta name="description" content="Melon" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

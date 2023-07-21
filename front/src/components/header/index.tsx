@@ -43,7 +43,7 @@ function Header() {
     <SMainWrapperHeader>
       <LeftCol>
         <Link href="/">
-          <SImageHeader src={AmphorLogo} alt="AmphorLogo" />
+          <SImageHeader src={AmphorLogo} alt="Melon" />
         </Link>
       </LeftCol>
       <RightCol>

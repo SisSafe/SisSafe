@@ -75,7 +75,7 @@ export const CardExpend: React.FC<CardProps> = ({ onClick, title, children }) =>
     <CardContainer onClick={handleClick}>
       <Flex horizontal={EFlex.between} vertical={EFlex.center}>
         <OText textColor={ETextColor.gray} size={ESize.l} weight={ETextWeight.bold}>{title}</OText>
-        <SImage src={expendIcon} alt='amphor' isExpanded={isExpanded} />
+        <SImage src={expendIcon} alt='Melon' isExpanded={isExpanded} />
       </Flex>
       <GapContainer isExpanded={isExpanded}>
         <GapContent>
