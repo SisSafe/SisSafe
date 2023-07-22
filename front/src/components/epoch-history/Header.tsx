@@ -8,7 +8,7 @@ import { BlockSize } from 'components/library/utils';
 
 const Header: React.FC = () => {
   return (
-    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
       <BlockSize size='33%'>
         <OText textColor={ETextColor.gray} size={ESize.s}>Epoch</OText>
       </BlockSize>

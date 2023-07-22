@@ -5,17 +5,16 @@ import { isMedia } from "../../utils/functions";
 
 interface IFlex {
   children: React.ReactNode;
-  fullWidth?: boolean;
-  fullHeight?: boolean;
-  wrapItems?: boolean;
+  fullwidth?: boolean;
+  fullheight?: boolean;
 
   direction?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
   horizontal?: EFlex.start | EFlex.end | EFlex.between | EFlex.around | EFlex.center;
   vertical?: EFlex.start | EFlex.end | EFlex.between | EFlex.around | EFlex.center;
 
-  smDirection?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
-  mdDirection?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
-  lgDirection?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
+  smdirection?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
+  mddirection?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
+  lgdirection?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
   xlDirection?: EFlex.row | EFlex.rowReverse | EFlex.column | EFlex.columnReverse;
 
   smHorizontal?: EFlex.start | EFlex.end | EFlex.between | EFlex.around | EFlex.center;
@@ -35,21 +34,20 @@ interface IFlex {
 const StyledFlex = styled.div<IFlex>`
 	display: flex;
 
-	${(p) => (p.wrapItems ? "flex-wrap: wrap;" : "flex-wrap: nowrap;")}
 
-	${(p) => (p.fullWidth ? `width: 100%;` : "")}
-	${(p) => (p.fullHeight ? `height: 100%;` : "")}
+	${(p) => (p.fullwidth ? `width: 100%;` : "")}
+	${(p) => (p.fullheight ? `height: 100%;` : "")}
 	${(p) => {
     return `
 		${p.direction ? `flex-direction: ${p.direction};` : ""}
 		${p.horizontal ? `justify-content: ${p.horizontal};` : ""}
 		${p.vertical ? `align-items: ${p.vertical};` : ""}
 
-		${p.smDirection || p.smHorizontal || p.smVertical
+		${p.smdirection || p.smHorizontal || p.smVertical
         ? isMedia(
           EMediaQuery.sm,
           `
-			${p.smDirection ? `flex-direction: ${p.smDirection};` : ""}
+			${p.smdirection ? `flex-direction: ${p.smdirection};` : ""}
 			${p.smHorizontal ? `justify-content: ${p.smHorizontal};` : ""}
 			${p.smVertical ? `align-items: ${p.smVertical};` : ""}
 		`
@@ -57,11 +55,11 @@ const StyledFlex = styled.div<IFlex>`
         : ""
       }
 
-		${p.mdDirection || p.mdHorizontal || p.mdVertical
+		${p.mddirection || p.mdHorizontal || p.mdVertical
         ? isMedia(
           EMediaQuery.md,
           `
-			${p.mdDirection ? `flex-direction: ${p.mdDirection};` : ""}
+			${p.mddirection ? `flex-direction: ${p.mddirection};` : ""}
 			${p.mdHorizontal ? `justify-content: ${p.mdHorizontal};` : ""}
 			${p.mdVertical ? `align-items: ${p.mdVertical};` : ""}
 		`
@@ -69,11 +67,11 @@ const StyledFlex = styled.div<IFlex>`
         : ""
       }
 
-		${p.lgDirection || p.lgHorizontal || p.lgVertical
+		${p.lgdirection || p.lgHorizontal || p.lgVertical
         ? isMedia(
           EMediaQuery.lg,
           `
-			${p.lgDirection ? `flex-direction: ${p.lgDirection};` : ""}
+			${p.lgdirection ? `flex-direction: ${p.lgdirection};` : ""}
 			${p.lgHorizontal ? `justify-content: ${p.lgHorizontal};` : ""}
 			${p.lgVertical ? `align-items: ${p.lgVertical};` : ""}
 		`
@@ -99,15 +97,14 @@ const StyledFlex = styled.div<IFlex>`
 
 const Flex: React.FC<IFlex> = ({
   children,
-  fullWidth = true,
-  fullHeight = true,
-  wrapItems = true,
+  fullwidth = true,
+  fullheight = true,
   direction = EFlex.row,
   horizontal = EFlex.start,
   vertical = EFlex.start,
-  smDirection,
-  mdDirection,
-  lgDirection,
+  smdirection,
+  mddirection,
+  lgdirection,
   xlDirection,
   smHorizontal,
   mdHorizontal,
@@ -124,14 +121,13 @@ const Flex: React.FC<IFlex> = ({
   return (
     <StyledFlex
       direction={direction}
-      fullWidth={fullWidth}
-      fullHeight={fullHeight}
-      wrapItems={wrapItems}
+      fullwidth={fullwidth}
+      fullheight={fullheight}
       horizontal={horizontal}
       vertical={vertical}
-      smDirection={smDirection}
-      mdDirection={mdDirection}
-      lgDirection={lgDirection}
+      smdirection={smdirection}
+      mddirection={mddirection}
+      lgdirection={lgdirection}
       xlDirection={xlDirection}
       smHorizontal={smHorizontal}
       mdHorizontal={mdHorizontal}

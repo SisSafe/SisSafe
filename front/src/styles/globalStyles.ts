@@ -109,6 +109,9 @@ p{
 input, button {
   font-family: 'Gellix', sans-serif;
 }
+.sismoConnectButton {
+	background: #120309 !important;
+}
 
 `;
 

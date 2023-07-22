@@ -8,7 +8,7 @@ import { BlockSize } from 'components/library/utils';
 
 const index: React.FC = () => {
   return (
-    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
       <BlockSize size='25%'>
         <OText textColor={ETextColor.gray} size={ESize.mm}>Strategy</OText>
       </BlockSize>

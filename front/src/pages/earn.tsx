@@ -153,7 +153,7 @@ function Earn() {
                       </BlockSize>
                     </Gap>
                     <Card backgroundColor={lightTheme.colors.lightBlue} paddingSize='20px'>
-                      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+                      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                         <Column>
                           <OText textColor={ETextColor.gray} size={ESize.xs}>Token</OText>
                           <TokenComponent imageUrl={logoUSDC} text='USDC' />
@@ -165,7 +165,7 @@ function Earn() {
                       </Flex>
                     </Card>
                     <Card paddingSize='12px'>
-                      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+                      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                         <OText textColor={ETextColor.gray} size={ESize.xs}>Gas Fees</OText>
                         <Gap>
                           <OText textColor={ETextColor.gray} size={ESize.xs}>0.032 ETH</OText>
@@ -178,7 +178,7 @@ function Earn() {
                   </Column>
                 </Card>
                 <Card backgroundColor={lightTheme.colors.typoButton} style={{ marginTop: '-35px' }}>
-                  <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+                  <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                     <SortByDates onChange={handleDateChange} />
                     <Gap>
                       <OText size={ESize.s} textColor={ETextColor.gray}>Expected Returns:</OText>
@@ -231,11 +231,11 @@ function Earn() {
 
                 <Card>
                   <Column gapSize='20px'>
-                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                       <OText textColor={ETextColor.gray} size={ESize.m} weight={ETextWeight.bold}>Vault</OText>
                       <OpenComponent text='Open' />
                     </Flex>
-                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                       <OText textColor={ETextColor.gray} size={ESize.m} weight={ETextWeight.bold}>Epoch 4</OText>
                       <OText textColor={ETextColor.normal} size={ESize.m} weight={ETextWeight.bold}>Jul 23 - Jul 30</OText>
 
@@ -280,12 +280,12 @@ function Earn() {
                 {/* Card 3 */}
                 <CardExpend title="Historical Performance">
                   <Card>
-                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                       <OText textColor={ETextColor.gray} size={ESize.m} weight={ETextWeight.bold}>Historical performance</OText>
                       <SortByDatesAccount handleChildClick={handleChildClick} onChange={handleDateChange} />
                     </Flex>
                     <Spacing size={ESize.l} />
-                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+                    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                       <Column>
                         <OText size={ESize.mm} weight={ETextWeight.bold}>+0.32%</OText>
                         <OText textColor={ETextColor.gray} size={ESize.s}>Current APR</OText>

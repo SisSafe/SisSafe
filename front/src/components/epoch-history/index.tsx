@@ -17,7 +17,7 @@ interface HistoryProps {
 const index: React.FC<HistoryProps> = ({ epoch, date, performance }) => {
   return (
     <Card paddingSize='10px' backgroundColor='#E9F1F9'>
-      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
         <BlockSize size='33%'>
           <OText weight={ETextWeight.bold} size={ESize.s}>{epoch}</OText>
         </BlockSize>

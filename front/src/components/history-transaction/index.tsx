@@ -15,7 +15,7 @@ interface TokenProps {
 
 const index: React.FC<TokenProps> = ({ deposit }) => {
   return (
-    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+    <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
       <BlockSize size='25%'>
         <TokenComponent imageUrl={logoUSDC} text='USDC' sizeImg='14' start />
       </BlockSize>

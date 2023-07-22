@@ -85,14 +85,14 @@ const CardConnect: React.FC<TokenProps> = ({ wallet }) => {
           </Circle>
         </Gap>
       </Wallet>
-      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
         <Gap gapSize='17px'>
           <Block />
           <TbSettings size={30} />
           <OText>Settings</OText>
         </Gap>
       </Flex>
-      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
         <Gap gapSize='17px'>
           <Block />
           <SImage src={Login} alt='login' />

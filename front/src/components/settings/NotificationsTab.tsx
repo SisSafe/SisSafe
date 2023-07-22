@@ -18,7 +18,7 @@ const NotificationsTab: React.FC = () => {
   return (
     <Column gapSize='30px'>
       <Card paddingSize='20px'>
-        <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+        <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
           <OText weight={ETextWeight.bold}>Vaults</OText>
           <Switch onClick={() => setIsChecked(!isChecked)}>
             <HiddenInput type="checkbox" />

@@ -16,8 +16,8 @@ export const SMainWrapperHeader = styled.div`
 
 
 export const SImageHeader = styled(Image)`
-  width: 132px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
 `;
 
 export const LeftCol = styled.div`

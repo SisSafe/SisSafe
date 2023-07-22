@@ -69,7 +69,7 @@ export const lightTheme: DefaultTheme = {
 		bgTransparent: "#F2F7FD",
 		accent: "#43A591",
 		negative: "#E35656",
-		primary: "#8579FA",
+		primary: "#120309",
 		secondary: "#B9C2E2",
 		gray: "#80829E",
 		deepBlue: "#1F1F3F",

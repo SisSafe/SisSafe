@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { EMediaQuery } from 'utils/Enums';
 
 export const SMainWrapperFooter = styled.div`
-  background-color: ${({ theme }) => theme.colors.deepBlue};
+  background-color: ${({ theme }) => theme.colors.primary};
   height: 180px;
   padding: 40px 95px;
   @media(max-width:${EMediaQuery.md}) {

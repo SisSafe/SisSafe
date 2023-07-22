@@ -46,9 +46,9 @@ const CardLogo = styled.div`
 function Footer() {
   return (
     <SMainWrapperFooter>
-      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
+      <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
         <ColLeft>
-          <OText textColor={ETextColor.white} size={ESize.m}>© 2023 Melon</OText>
+          <OText textColor={ETextColor.white} size={ESize.m}>© 2023 Hack Melon</OText>
         </ColLeft>
       </Flex>
     </SMainWrapperFooter>

@@ -17,7 +17,6 @@ interface IButton {
   clickable?: boolean;
   selected?: boolean;
   customWidth?: string;
-  className?: string;
   style?: string;
   ariaLabel?: string;
 }
@@ -180,7 +179,6 @@ const OButton: React.FC<IButton> = ({
   children,
   onClick = () => { },
   size = ESize.l,
-  className = "",
   tertiary = false,
   secondary = false,
   disabled = false,
@@ -209,7 +207,6 @@ const OButton: React.FC<IButton> = ({
       clickable={clickable}
       selected={selected}
       customWidth={customWidth}
-      className={`${className}${selected ? " force-selected" : ""}`}
       style={style}
       aria-label={typeof children === "string" ? children : ariaLabel}
       tertiary={tertiary}

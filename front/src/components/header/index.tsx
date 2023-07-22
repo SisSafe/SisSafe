@@ -18,30 +18,35 @@ import { useRouter } from "next/router";
 import { OButton } from "components/library/OButton";
 import { useConnect, useDisconnect, useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { formatAddress } from "utils";
+import MelonLogo from "../../assets/images/melon.png"
+
 
 function Header() {
-  const router = useRouter();
   const { connect, connectors } = useConnect()
-  const { address, isConnected, connector } = useAccount()
+  const { address, isConnected } = useAccount()
   const { disconnect } = useDisconnect()
   const formatWalletAddress = address && formatAddress(address as string)
   const { chain } = useNetwork()
-  const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
+  const { chains } = useSwitchNetwork()
   const [rightNetwork, setRightNetwork] = useState<boolean | null>(null);
 
+  // useEffect(() => {
+  //   const checkNetwork = () => {
+  //     chains.map((x) => {
+  //       x.id === chain?.id ? setRightNetwork(true) : setRightNetwork(false);
+  //     })
+  //   }
+  //   checkNetwork()
+  // }, [chain])
   useEffect(() => {
-    const checkNetwork = () => {
-      chains.map((x) => {
-        x.id === chain?.id ? setRightNetwork(true) : setRightNetwork(false);
-      })
-    }
-    checkNetwork()
+    setRightNetwork(chains.some(x => x.id === chain?.id));
   }, [chain])
 
+  console.log(rightNetwork)
   return (
     <SMainWrapperHeader>
       <LeftCol>
-        {/* ... other code */}
+        <SImageHeader src={MelonLogo} alt="MelonLogo" />
       </LeftCol>
       <RightCol>
         {isConnected ?

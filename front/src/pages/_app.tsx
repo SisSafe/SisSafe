@@ -9,8 +9,14 @@ import { goerli, polygon, optimism, arbitrum } from "wagmi/chains";
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
 import { UserProvider } from 'context';
+import { useState, useEffect } from "react";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const config = createConfig({
     autoConnect: true,
@@ -21,12 +27,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   });
   return (
     <UserProvider>
-      <WagmiConfig config={config}>
-        <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={lightTheme}>
+        <WagmiConfig config={config}>
           <GlobalStyle theme={lightTheme} />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </WagmiConfig>
+          {isClient && <Component {...pageProps} />}
+        </WagmiConfig>
+      </ThemeProvider>
     </UserProvider>
   );
 };
