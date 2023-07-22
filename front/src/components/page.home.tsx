@@ -81,7 +81,7 @@ const Selector = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: -27%;
+  right: -120px;
   top:55%;
   width: 110px;
   background-color: #FFF;
