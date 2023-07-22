@@ -26,6 +26,7 @@ import { readContract } from '@wagmi/core'
 import { ethers } from "ethers";
 import { useWalletClient } from 'wagmi'
 import { BlockSize } from './library/utils';
+import RankChoices from './rank-choices';
 
 const config: SismoConnectConfig = {
   // you will need to get an appId from the Factory
@@ -77,13 +78,19 @@ const ButtonWrapper = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const Selector = styled.div`
+interface SelectorProps {
+  right?: string;
+  width?: string;
+  top?: string;
+
+}
+const Selector = styled.div<SelectorProps>`
   display: flex;
   flex-direction: column;
   position: absolute;
-  right: -120px;
-  top:55%;
-  width: 110px;
+  right: ${({ right }) => right || '-120px'};
+  top: ${({ top }) => top || '55%'};
+  width: ${({ width }) => width || '110px'};
   background-color: #FFF;
   border: none;
   box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.25);
@@ -122,7 +129,9 @@ export const PageHome: React.FC<IHomePage> = () => {
   const { address: account, isConnected } = useAccount();
   const [res, setRes] = useState<SismoConnectResponse>()
   const [open, setOpen] = useState(false)
+  const [openChoice, setOpenChoice] = useState(false)
   const [rank, setRank] = useState('1')
+  const [opportunity, setOpportunity] = useState<number>(0)
 
   useEffect(() => {
     if (data) {
@@ -247,22 +256,9 @@ export const PageHome: React.FC<IHomePage> = () => {
                 </>
                 :
                 data ?
-                  <Card anim>
-                    <OText textAlign={ETextAlign.center}>
-                      You are connected with{' '}
-                      <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Sismo</OText>
-                      .
-                    </OText>
-                    <Spacing size={ESize.s} />
-                    <OText textAlign={ETextAlign.center}>
-                      Your rank: <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>{rank}</OText>
-                    </OText>
-                    <Spacing size={ESize.s} />
-                    <Gap>
-                      <Input placeholder='price' />
-                      <OButton>Submit</OButton>
-                    </Gap>
-                  </Card>
+                  <BlockSize size='500px'>
+                    <RankChoices rank={rank} openChoice={openChoice} setOpenChoice={setOpenChoice} setOpportunity={setOpportunity} opportunity={opportunity} />
+                  </BlockSize>
                   :
                   <>
                     <OText textAlign={ETextAlign.center}>
