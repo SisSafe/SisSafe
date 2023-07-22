@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openzeppelin/contracts": "^4.9.2",
     "@sismo-core/sismo-connect-solidity": "^0.0.19",
     "dotenv": "^16.3.1"
   }
