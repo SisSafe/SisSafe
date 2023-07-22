@@ -54,17 +54,22 @@ export interface INode {
 interface UserContextProps {
   setData: (value: any) => void;
   data: any;
+  setRes: (value: any) => void;
+  res: any;
 }
 
 const UserContext = createContext<UserContextProps>({} as UserContextProps);
 
 const UserProvider = ({ children }: { children: ReactNode }) => {
   const [data, setData] = useCookieState('', "");
+  const [res, setRes] = useCookieState('', {})
 
   return (
     <UserContext.Provider value={{
       setData,
       data,
+      setRes,
+      res
     }}>
       {children}
     </UserContext.Provider>

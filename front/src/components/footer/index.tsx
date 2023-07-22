@@ -1,6 +1,5 @@
 import React from 'react'
 import { SMainWrapperFooter, SImageHeader } from './s-components/s-footer'
-import AmphorLogo from '../../assets/images/amphorLogoLight.png'
 import { Flex } from 'components/library/Flex'
 import { EFlex, ETextColor, ESize } from "../../utils/Enums"
 import styled from 'styled-components'
@@ -23,6 +22,7 @@ const ColRight = styled.div`
   gap: ${({ theme }) => theme.spacing['3xs']};
   @media(max-width:${EMediaQuery.md}) {
     flex-direction: column;
+  }
 `
 
 
@@ -38,7 +38,7 @@ const CardLogo = styled.div`
   cursor: pointer;
   @media(max-width:${EMediaQuery.md}) {
     height: 40px;
-    width: 40px
+    width: 40px;
   }
 `
 
@@ -48,10 +48,9 @@ function Footer() {
     <SMainWrapperFooter>
       <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullWidth>
         <ColLeft>
-          <SImageHeader src={AmphorLogo} alt='Melon' />
-          <OText textColor={ETextColor.white} size={ESize.m}>© 2023 Amphor</OText>
+          <OText textColor={ETextColor.white} size={ESize.m}>© 2023 Melon</OText>
         </ColLeft>
-      </Flex >
+      </Flex>
     </SMainWrapperFooter>
   )
 }

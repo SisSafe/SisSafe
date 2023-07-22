@@ -6,7 +6,6 @@ import {
   LeftCol,
   RightCol,
 } from "./s-components/s-header";
-import AmphorLogo from "../../assets/images/amphor.png";
 import Link from "next/link";
 import {
   ESize,

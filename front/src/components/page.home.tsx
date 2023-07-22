@@ -10,13 +10,9 @@ import { Input } from './library/Input';
 import { Flex } from "./library/Flex"
 import { Spacing } from "./library/Spacing"
 import { EFlex } from "../utils/Enums"
-import backgroundImage from "../assets/images/background.png"
-import Image from 'next/image'
-import { Gap } from 'components/library/Gap';
 import { SismoConnectButton, AuthType, SismoConnectConfig, SismoConnectResponse } from "@sismo-core/sismo-connect-react";
 import { encodeAbiParameters } from "viem";
 import { useAccount } from "wagmi";
-import { useCookieState } from 'hooks/useLocalStorage';
 import { UserContext } from "context";
 import { useContext } from "react";
 
@@ -49,17 +45,6 @@ const SMainWrapper = styled.div`
   position: relative;
 `;
 
-const SImage = styled(Image)`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  
-`
-
 const signMessage = (account: string) => {
   return encodeAbiParameters(
     [{ type: "address", name: "airdropAddress" }],
@@ -71,8 +56,9 @@ const signMessage = (account: string) => {
 export const PageHome: React.FC<IHomePage> = () => {
   const { setData, data } = useContext(UserContext);
   const { address: account, isConnected } = useAccount();
-
+  const [res, setRes] = useState()
   console.log(data)
+  console.log('res', res)
   return (
     <>
       <Head>
@@ -82,17 +68,8 @@ export const PageHome: React.FC<IHomePage> = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SMainWrapper>
-        <SImage src={backgroundImage} alt='bg' />
         <Header />
         <Flex direction={EFlex.column} horizontal={EFlex.center} vertical={EFlex.center}>
-          <OText size={ESize.xl} weight={ETextWeight.bold}>
-            We're launching soon
-          </OText>
-          <Spacing size={ESize.xs} />
-          <OText size={ESize.m} weight={ETextWeight.bold} textColor={ETextColor.gray}>
-            Sign up to stay in the loop!
-          </OText>
-          <Spacing size={ESize.l} />
           {isConnected && !data ?
             <SismoConnectButton
               // the client config created
@@ -107,6 +84,7 @@ export const PageHome: React.FC<IHomePage> = () => {
               signature={{ message: signMessage(account as string) }}
               //  a response containing his proofs 
               onResponse={async (response: SismoConnectResponse) => {
+                setRes(response)
                 //Send the response to your server to verify it
                 //thanks to the @sismo-core/sismo-connect-server package
               }}
