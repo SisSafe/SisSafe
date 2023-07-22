@@ -56,6 +56,8 @@ interface UserContextProps {
   data: any;
   setRes: (value: any) => void;
   res: any;
+  melonData: any;
+  setMelonData: (value: any) => void;
 }
 
 const UserContext = createContext<UserContextProps>({} as UserContextProps);
@@ -63,13 +65,16 @@ const UserContext = createContext<UserContextProps>({} as UserContextProps);
 const UserProvider = ({ children }: { children: ReactNode }) => {
   const [data, setData] = useCookieState('', "");
   const [res, setRes] = useCookieState('', {})
+  const [melonData, setMelonData] = useCookieState('', {})
 
   return (
     <UserContext.Provider value={{
       setData,
       data,
       setRes,
-      res
+      res,
+      melonData,
+      setMelonData
     }}>
       {children}
     </UserContext.Provider>

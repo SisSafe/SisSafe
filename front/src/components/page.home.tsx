@@ -10,14 +10,14 @@ import { Input } from './library/Input';
 import { Flex } from "./library/Flex"
 import { Spacing } from "./library/Spacing"
 import { EFlex } from "../utils/Enums"
-import { SismoConnectButton, AuthType, SismoConnectConfig, SismoConnectResponse, Vault } from "@sismo-core/sismo-connect-react";
+import { SismoConnectButton, AuthType, SismoConnectConfig, SismoConnectResponse, ClaimType } from "@sismo-core/sismo-connect-react";
 import { encodeAbiParameters } from "viem";
 import { useAccount, useContractRead } from "wagmi";
 import { UserContext } from "context";
 import { useContext } from "react";
 import VaultDoor from './library/Vault';
 import { Card } from './library/Card';
-import { Gap } from './library/Gap';
+import { Column, Gap } from './library/Gap';
 import { MELON_ADDRESS } from '../constants';
 import { getContract } from '@wagmi/core'
 import { melonABI } from 'abi/melonABI';
@@ -25,6 +25,7 @@ import melon from 'abi/melon.json';
 import { readContract } from '@wagmi/core'
 import { ethers } from "ethers";
 import { useWalletClient } from 'wagmi'
+import { BlockSize } from './library/utils';
 
 const config: SismoConnectConfig = {
   // you will need to get an appId from the Factory
@@ -65,11 +66,47 @@ const Wrapper = styled.div`
   padding: 30px 0px;
 `;
 
+const Relative = styled.div`
+  position: relative;
+`;
+
 const ButtonWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+const Selector = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -27%;
+  top:55%;
+  width: 110px;
+  background-color: #FFF;
+  border: none;
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  z-index: 2;
+`
+
+interface ClientProps {
+  disabled?: boolean;
+}
+
+const Client = styled.div<ClientProps>`
+  transition: 0.2s;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  background-color: ${({ disabled }) => (disabled ? '#D3D3D3' : 'white')};
+  &:hover {
+    background-color: ${({ theme, disabled }) => (disabled ? '#FFF' : theme.colors.primary)};
+    p {
+      color: #FFF;
+    }
+  }
 `;
 
 const signMessage = (account: string) => {
@@ -81,15 +118,15 @@ const signMessage = (account: string) => {
 
 
 export const PageHome: React.FC<IHomePage> = () => {
-  const { setData, data } = useContext(UserContext);
+  const { setData, data, setMelonData, melonData } = useContext(UserContext);
   const { address: account, isConnected } = useAccount();
   const [res, setRes] = useState<SismoConnectResponse>()
-  const [wait, setWait] = useState()
+  const [open, setOpen] = useState(false)
+  const [rank, setRank] = useState('1')
 
   useEffect(() => {
     if (data) {
       try {
-
         const authentifyUser = async () => {
           //@ts-ignore
           const provider = new ethers.providers.Web3Provider(window?.ethereum);
@@ -99,21 +136,22 @@ export const PageHome: React.FC<IHomePage> = () => {
             provider.getSigner()
           );
           const result = await contract.melonAction(data, account);
-          console.log(result)
-          const resultFromWait = await result.wait();
-          setWait(resultFromWait)
-          console.log(resultFromWait)
-
+          setMelonData(result)
         }
-        authentifyUser()
+        Object.keys(melonData).length === 0 && authentifyUser()
       }
       catch (err: any) {
         console.log(err)
       }
     }
 
-  }, [data])
+  }, [data, melonData])
 
+  const selectClient = (arg: string) => {
+    setRank(arg)
+    setOpen(!open)
+  }
+  console.log(melonData)
   return (
     <>
       <Head>
@@ -126,45 +164,98 @@ export const PageHome: React.FC<IHomePage> = () => {
         <Header />
         <Flex direction={EFlex.column} horizontal={EFlex.center} vertical={EFlex.center}>
           <Spacing size={ESize.s} />
-          {!data ?
+          {Object.keys(melonData).length === 0 ?
             <OText size={ESize.xl} weight={ETextWeight.bold} >Welcome to <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Melon</OText></OText>
             :
             <OText size={ESize.xl} weight={ETextWeight.bold} textColor={ETextColor.white}>Welcome to your <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Vault</OText></OText>
           }
-          <Wrapper>
-            {!data ? <VaultDoor /> : <VaultDoor reverse />}
-            <ButtonWrapper>
-              {isConnected && !data ?
-                <SismoConnectButton
-                  // the client config created
-                  config={config}
-                  // request a proof of account ownership 
-                  // (here Vault ownership)
-                  auth={{ authType: AuthType.VAULT }}
-                  // request a proof of group membership 
-                  // (here the group with id 0x42c768bb8ae79e4c5c05d3b51a4ec74a)
-                  claim={{ groupId: "0xcaa596ba15aabc88ff17c89b6f94d3ef" }}
-                  // request a message signature
-                  signature={{ message: signMessage(account as string) }}
-                  //  a response containing his proofs 
-                  onResponse={async (response: SismoConnectResponse) => {
-                    setRes(response)
-                    //Send the response to your server to verify it
-                    //thanks to the @sismo-core/sismo-connect-server package
-                  }}
-                  onResponseBytes={(responseBytes: string) => setData(responseBytes)}
-                /> :
+          <Spacing size={ESize.s} />
 
+          {!data && isConnected &&
+            <BlockSize size='50%'>
+              <Card>
+                <Relative>
+                  <Column>
+                    <Gap>
+                      <BlockSize size='50%'>
+                        <OText>
+                          Select your {' '}
+                          <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>DAO</OText>
+                        </OText>
+                      </BlockSize>
+                      <BlockSize size='50%'>
+                        <OButton disabled customWidth='100%'>Melon DAO</OButton>
+                      </BlockSize>
+                    </Gap>
+                    <Gap>
+                      <BlockSize size='50%'>
+                        <OText>
+                          Set your {' '}
+                          <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Melon</OText>
+                        </OText>
+                      </BlockSize>
+                      <BlockSize size='50%'>
+                        <OButton customWidth='100%' onClick={() => setOpen(!open)}>{rank}</OButton>
+                      </BlockSize>
+                    </Gap>
+                  </Column>
+                  {open &&
+                    <Selector>
+                      <Client onClick={() => selectClient('1')}>
+                        <OText>
+                          1
+                        </OText>
+                      </Client>
+                      <Client onClick={() => selectClient('2')}>
+                        <OText>
+                          2
+                        </OText>
+                      </Client>
+                      <Client onClick={() => selectClient('3')}>
+                        <OText>
+                          3
+                        </OText>
+                      </Client>
+                      <Client onClick={() => selectClient('4')}>
+                        <OText>
+                          4
+                        </OText>
+                      </Client>
+                    </Selector>
+                  }
+                </Relative>
+              </Card>
+            </BlockSize>
+
+          }
+          <Wrapper>
+            {Object.keys(melonData).length === 0 ? <VaultDoor /> : <VaultDoor reverse />}
+            <ButtonWrapper>
+              {isConnected && Object.keys(melonData).length === 0 ?
+                <>
+
+                  <SismoConnectButton
+                    config={config}
+                    auth={{ authType: AuthType.EVM_ACCOUNT }}
+                    claim={{ groupId: "0xcaa596ba15aabc88ff17c89b6f94d3ef", value: Number(rank) }}
+                    signature={{ message: signMessage(account as string) }}
+                    onResponse={async (response: SismoConnectResponse) => {
+                      setRes(response)
+                    }}
+                    onResponseBytes={(responseBytes: string) => setData(responseBytes)}
+                  />
+                </>
+                :
                 data ?
                   <Card anim>
                     <OText textAlign={ETextAlign.center}>
-                      You are connected with
+                      You are connected with{' '}
                       <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Sismo</OText>
                       .
                     </OText>
                     <Spacing size={ESize.s} />
                     <OText textAlign={ETextAlign.center}>
-                      Your rank: <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>4</OText>
+                      Your rank: <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>{rank}</OText>
                     </OText>
                     <Spacing size={ESize.s} />
                     <Gap>
