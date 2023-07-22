@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { OButton } from './library/OButton';
 import { OText } from './library/OText';
 import { EBackgroundColor, ESize, ETextAlign, ETextColor, ETextWeight, ETextType } from '../utils/Enums';
@@ -12,12 +12,19 @@ import { Spacing } from "./library/Spacing"
 import { EFlex } from "../utils/Enums"
 import { SismoConnectButton, AuthType, SismoConnectConfig, SismoConnectResponse, Vault } from "@sismo-core/sismo-connect-react";
 import { encodeAbiParameters } from "viem";
-import { useAccount } from "wagmi";
+import { useAccount, useContractRead } from "wagmi";
 import { UserContext } from "context";
 import { useContext } from "react";
 import VaultDoor from './library/Vault';
 import { Card } from './library/Card';
 import { Gap } from './library/Gap';
+import { MELON_ADDRESS } from '../constants';
+import { getContract } from '@wagmi/core'
+import { melonABI } from 'abi/melonABI';
+import melon from 'abi/melon.json';
+import { readContract } from '@wagmi/core'
+import { ethers } from "ethers";
+import { useWalletClient } from 'wagmi'
 
 const config: SismoConnectConfig = {
   // you will need to get an appId from the Factory
@@ -78,8 +85,29 @@ export const PageHome: React.FC<IHomePage> = () => {
   const { address: account, isConnected } = useAccount();
   const [res, setRes] = useState<SismoConnectResponse>()
 
-  console.log(res)
-  console.log(data)
+  useEffect(() => {
+    if (data) {
+      try {
+
+        const authentifyUser = async () => {
+          //@ts-ignore
+          const provider = new ethers.providers.Web3Provider(window?.ethereum);
+          const contract = new ethers.Contract(
+            MELON_ADDRESS,
+            melonABI,
+            provider.getSigner()
+          );
+          const result = await contract.melonAction(data, account);
+          console.log(result)
+        }
+        authentifyUser()
+      }
+      catch (err: any) {
+        console.log(err)
+      }
+    }
+
+  }, [data])
 
   return (
     <>
@@ -103,7 +131,6 @@ export const PageHome: React.FC<IHomePage> = () => {
             <ButtonWrapper>
               {isConnected && !data ?
                 <SismoConnectButton
-
                   // the client config created
                   config={config}
                   // request a proof of account ownership 
