@@ -1,0 +1,247 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "ethOutput",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTokenValueOfEth",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenInput",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "getTokenValueOfEth(uint256)": "d1eca9cf"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ethOutput\",\"type\":\"uint256\"}],\"name\":\"getTokenValueOfEth\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenInput\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getTokenValueOfEth(uint256)\":{\"notice\":\"return amount of tokens that are required to receive that much eth.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/samples/IOracle.sol\":\"IOracle\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=node_modules/@openzeppelin/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/samples/IOracle.sol\":{\"keccak256\":\"0xdefd2ec9c4e592ad68092e9e4c15d27c697fc08f90a885bcdb47542da88b42be\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://e9b56e7eebdef50c8a9edbbb31f3908f8440418cff5d11d4863cc61c0035674d\",\"dweb:/ipfs/QmS4buGEZa6xxM8gJosRbCZuEEH5nyqYQE2Vd2n3zveZH8\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.19+commit.7dd6d404"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "ethOutput",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getTokenValueOfEth",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenInput",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "getTokenValueOfEth(uint256)": {
+            "notice": "return amount of tokens that are required to receive that much eth."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/samples/IOracle.sol": "IOracle"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/samples/IOracle.sol": {
+        "keccak256": "0xdefd2ec9c4e592ad68092e9e4c15d27c697fc08f90a885bcdb47542da88b42be",
+        "urls": [
+          "bzz-raw://e9b56e7eebdef50c8a9edbbb31f3908f8440418cff5d11d4863cc61c0035674d",
+          "dweb:/ipfs/QmS4buGEZa6xxM8gJosRbCZuEEH5nyqYQE2Vd2n3zveZH8"
+        ],
+        "license": "GPL-3.0"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/samples/IOracle.sol",
+    "id": 4471,
+    "exportedSymbols": {
+      "IOracle": [
+        4470
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "36:236:15",
+    "nodes": [
+      {
+        "id": 4461,
+        "nodeType": "PragmaDirective",
+        "src": "36:24:15",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".12"
+        ]
+      },
+      {
+        "id": 4470,
+        "nodeType": "ContractDefinition",
+        "src": "62:208:15",
+        "nodes": [
+          {
+            "id": 4469,
+            "nodeType": "FunctionDefinition",
+            "src": "178:90:15",
+            "nodes": [],
+            "documentation": {
+              "id": 4462,
+              "nodeType": "StructuredDocumentation",
+              "src": "87:86:15",
+              "text": " return amount of tokens that are required to receive that much eth."
+            },
+            "functionSelector": "d1eca9cf",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTokenValueOfEth",
+            "nameLocation": "187:18:15",
+            "parameters": {
+              "id": 4465,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4464,
+                  "mutability": "mutable",
+                  "name": "ethOutput",
+                  "nameLocation": "214:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4469,
+                  "src": "206:17:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4463,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "206:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "205:19:15"
+            },
+            "returnParameters": {
+              "id": 4468,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4467,
+                  "mutability": "mutable",
+                  "name": "tokenInput",
+                  "nameLocation": "256:10:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4469,
+                  "src": "248:18:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4466,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "248:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "247:20:15"
+            },
+            "scope": 4470,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IOracle",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          4470
+        ],
+        "name": "IOracle",
+        "nameLocation": "72:7:15",
+        "scope": 4471,
+        "usedErrors": []
+      }
+    ],
+    "license": "GPL-3.0"
+  },
+  "id": 15
+}
