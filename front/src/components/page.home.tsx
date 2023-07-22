@@ -84,6 +84,7 @@ export const PageHome: React.FC<IHomePage> = () => {
   const { setData, data } = useContext(UserContext);
   const { address: account, isConnected } = useAccount();
   const [res, setRes] = useState<SismoConnectResponse>()
+  const [wait, setWait] = useState()
 
   useEffect(() => {
     if (data) {
@@ -99,6 +100,10 @@ export const PageHome: React.FC<IHomePage> = () => {
           );
           const result = await contract.melonAction(data, account);
           console.log(result)
+          const resultFromWait = await result.wait();
+          setWait(resultFromWait)
+          console.log(resultFromWait)
+
         }
         authentifyUser()
       }
