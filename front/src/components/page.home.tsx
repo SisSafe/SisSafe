@@ -26,7 +26,9 @@ import { readContract } from '@wagmi/core'
 import { ethers } from "ethers";
 import { useWalletClient } from 'wagmi'
 import { BlockSize } from './library/utils';
-import RankChoices from './rank-choices';
+import RankChoices1 from './rank-choices/RankChoices1';
+import RankChoices2 from './rank-choices/RankChoices2';
+import RankChoices3 from './rank-choices/RankChoices3';
 
 const config: SismoConnectConfig = {
   // you will need to get an appId from the Factory
@@ -125,12 +127,11 @@ const signMessage = (account: string) => {
 
 
 export const PageHome: React.FC<IHomePage> = () => {
-  const { setData, data, setMelonData, melonData } = useContext(UserContext);
+  const { setData, data, setMelonData, melonData, setRank, rank } = useContext(UserContext);
   const { address: account, isConnected } = useAccount();
   const [res, setRes] = useState<SismoConnectResponse>()
   const [open, setOpen] = useState(false)
   const [openChoice, setOpenChoice] = useState(false)
-  const [rank, setRank] = useState('1')
   const [opportunity, setOpportunity] = useState<number>(0)
 
   useEffect(() => {
@@ -160,7 +161,7 @@ export const PageHome: React.FC<IHomePage> = () => {
     setRank(arg)
     setOpen(!open)
   }
-  console.log(melonData)
+  console.log('rank', rank)
   return (
     <>
       <Head>
@@ -225,11 +226,6 @@ export const PageHome: React.FC<IHomePage> = () => {
                           3
                         </OText>
                       </Client>
-                      <Client onClick={() => selectClient('4')}>
-                        <OText>
-                          4
-                        </OText>
-                      </Client>
                     </Selector>
                   }
                 </Relative>
@@ -257,7 +253,13 @@ export const PageHome: React.FC<IHomePage> = () => {
                 :
                 data ?
                   <BlockSize size='500px'>
-                    <RankChoices rank={rank} openChoice={openChoice} setOpenChoice={setOpenChoice} setOpportunity={setOpportunity} opportunity={opportunity} />
+                    {rank === '1' ?
+                      <RankChoices1 rank={rank} openChoice={openChoice} setOpenChoice={setOpenChoice} setOpportunity={setOpportunity} opportunity={opportunity} />
+                      : rank === '2' ?
+                        <RankChoices2 rank={rank} openChoice={openChoice} setOpenChoice={setOpenChoice} setOpportunity={setOpportunity} opportunity={opportunity} />
+                        :
+                        <RankChoices3 rank={rank} openChoice={openChoice} setOpenChoice={setOpenChoice} setOpportunity={setOpportunity} opportunity={opportunity} />
+                    }
                   </BlockSize>
                   :
                   <>

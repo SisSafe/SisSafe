@@ -107,6 +107,7 @@ const StyledButton = styled.button<{
           ${p.tertiary !== undefined // Check if tertiary prop is defined
           ? `tertiary="${p.tertiary ? 'true' : 'false'}"` // Include tertiary attribute with the prop value as a string
           : ""};
+  ${p.selected ? `background-color: ${p.theme.colors.orange}` : ""};
 
 	${!p.square && !p.glassBackground
           ? css`
@@ -126,30 +127,33 @@ const StyledButton = styled.button<{
 									padding: 4px 8px;
 								}
 						  `
-            : ""}	
+            : ""
+        }
 
-	border: ${p.disabled && !p.glassBackground && !p.tertiary
+border: ${p.disabled && !p.glassBackground && !p.tertiary
           ? "1px solid rgba(231, 234, 237, 0.1)"
           : p.secondary
             ? `1px solid ${p.theme.colors.lightGray};`
-            : "none"};
+            : "none"
+        };
 
 					${p.customWidth ? `width: ${p.customWidth};` : ""}
 
 
-					p,
-					span,
-					i {
+p,
+  span,
+  i {
 						${addTransition()}
-						  color: ${p.secondary
+  color: ${p.secondary
           ? `#000`
           : p.disabled ?
             `#1D222D`
-            : "#FFF"};
-						font-weight: bold;
-						font-size: ${p.theme.fontSize.s};
-						line-height: 18px;
-					}
+            : "#FFF"
+        };
+  font - weight: bold;
+  font - size: ${p.theme.fontSize.s};
+  line - height: 18px;
+}
 
 					/* &:hover {
 						p,
@@ -163,14 +167,14 @@ const StyledButton = styled.button<{
 						}
 					} */
 
-					&.force-selected {
-						p,
-						span,
-						i {
-							color: ${p.disabled || p.tertiary ? p.theme.colors.typo + "33" : p.theme.colors.bg};
-						}
-					}
-			  `}
+					&.force - selected {
+  p,
+    span,
+    i {
+    color: ${p.disabled || p.tertiary ? p.theme.colors.typo + "33" : p.theme.colors.bg};
+  }
+}
+`}
 
 
 `;

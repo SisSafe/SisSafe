@@ -58,6 +58,8 @@ interface UserContextProps {
   res: any;
   melonData: any;
   setMelonData: (value: any) => void;
+  setRank: (value: any) => void;
+  rank: string
 }
 
 const UserContext = createContext<UserContextProps>({} as UserContextProps);
@@ -66,6 +68,7 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
   const [data, setData] = useCookieState('', "");
   const [res, setRes] = useCookieState('', {})
   const [melonData, setMelonData] = useCookieState('', {})
+  const [rank, setRank] = useCookieState('dataRank', '1')
 
   return (
     <UserContext.Provider value={{
@@ -74,7 +77,9 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
       setRes,
       res,
       melonData,
-      setMelonData
+      setMelonData,
+      setRank,
+      rank
     }}>
       {children}
     </UserContext.Provider>
