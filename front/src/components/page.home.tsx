@@ -236,8 +236,8 @@ export const PageHome: React.FC<IHomePage> = () => {
 
                   <SismoConnectButton
                     config={config}
-                    auth={{ authType: AuthType.VAULT }}
-                    claim={{ groupId: "0xcaa596ba15aabc88ff17c89b6f94d3ef" }}
+                    auth={{ authType: AuthType.EVM_ACCOUNT }}
+                    claim={{ groupId: "0xcaa596ba15aabc88ff17c89b6f94d3ef", value: Number(rank) }}
                     signature={{ message: signMessage(account as string) }}
                     onResponse={async (response: SismoConnectResponse) => {
                       setRes(response)
