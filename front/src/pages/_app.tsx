@@ -8,7 +8,7 @@ import { WagmiConfig, createConfig, configureChains } from 'wagmi'
 import { goerli, polygon, optimism, arbitrum } from "wagmi/chains";
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
-
+import { UserProvider } from 'context';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 
@@ -20,12 +20,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     }),
   });
   return (
-    <WagmiConfig config={config}>
-      <ThemeProvider theme={lightTheme}>
-        <GlobalStyle theme={lightTheme} />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </WagmiConfig>
+    <UserProvider>
+      <WagmiConfig config={config}>
+        <ThemeProvider theme={lightTheme}>
+          <GlobalStyle theme={lightTheme} />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </WagmiConfig>
+    </UserProvider>
   );
 };
 

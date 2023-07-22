@@ -28,7 +28,7 @@ function Header() {
   const formatWalletAddress = address && formatAddress(address as string)
   const { chain } = useNetwork()
   const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
-  const [rightNetwork, setRightNetwork] = useState(false);
+  const [rightNetwork, setRightNetwork] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkNetwork = () => {
@@ -42,18 +42,21 @@ function Header() {
   return (
     <SMainWrapperHeader>
       <LeftCol>
-        <Link href="/">
-          <SImageHeader src={AmphorLogo} alt="Melon" />
-        </Link>
+        {/* ... other code */}
       </LeftCol>
       <RightCol>
         {isConnected ?
           <>
             {
-              rightNetwork ?
-                <OButton onClick={() => disconnect()}>{formatWalletAddress}</OButton>
+              rightNetwork === null
+                ?
+                <OButton disabled>Loading...</OButton>
                 :
-                <OButton onClick={() => disconnect()}>Wrong network</OButton>
+                rightNetwork
+                  ?
+                  <OButton onClick={() => disconnect()}>{formatWalletAddress}</OButton>
+                  :
+                  <OButton onClick={() => disconnect()}>Wrong network</OButton>
             }
           </>
           :

@@ -16,6 +16,9 @@ import { Gap } from 'components/library/Gap';
 import { SismoConnectButton, AuthType, SismoConnectConfig, SismoConnectResponse } from "@sismo-core/sismo-connect-react";
 import { encodeAbiParameters } from "viem";
 import { useAccount } from "wagmi";
+import { useCookieState } from 'hooks/useLocalStorage';
+import { UserContext } from "context";
+import { useContext } from "react";
 
 const config: SismoConnectConfig = {
   // you will need to get an appId from the Factory
@@ -34,7 +37,6 @@ const config: SismoConnectConfig = {
       "0x1EC75BaBD4CDe5Fe58D7268bb3F2C34B534F8d81",
     ],
   },
-  displayRawResponse: true,
 }
 interface IHomePage { }
 
@@ -67,10 +69,10 @@ const signMessage = (account: string) => {
 
 
 export const PageHome: React.FC<IHomePage> = () => {
-  const [responseBytes, setResponseBytes] = useState<string>("");
+  const { setData, data } = useContext(UserContext);
   const { address: account, isConnected } = useAccount();
 
-  console.log('responseBytes', responseBytes)
+  console.log(data)
   return (
     <>
       <Head>
@@ -91,7 +93,7 @@ export const PageHome: React.FC<IHomePage> = () => {
             Sign up to stay in the loop!
           </OText>
           <Spacing size={ESize.l} />
-          {isConnected &&
+          {isConnected && !data ?
             <SismoConnectButton
               // the client config created
               config={config}
@@ -108,8 +110,15 @@ export const PageHome: React.FC<IHomePage> = () => {
                 //Send the response to your server to verify it
                 //thanks to the @sismo-core/sismo-connect-server package
               }}
-              onResponseBytes={(responseBytes: string) => setResponseBytes(responseBytes)}
-            />
+              onResponseBytes={(responseBytes: string) => setData(responseBytes)}
+            /> :
+            data ?
+              <OText>
+                You are connected with sismo
+              </OText>
+              :
+              <>
+              </>
           }
         </Flex>
         <Footer />
