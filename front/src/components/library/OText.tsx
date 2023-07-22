@@ -48,7 +48,7 @@ const generateTextStyle = (p: any) => {
 			: `
 	`}
 
-	${p.textColor === ETextColor.white ? `color: #FFF;` : p.textColor === ETextColor.blue ? `color: #2F80ED;` : p.textColor === ETextColor.green ? `color: ${p.theme.colors.green};` : p.textColor === ETextColor.red ? `color: ${p.theme.colors.negative};` : p.textColor === ETextColor.textBlue ? `color: ${p.theme.colors.textBlue};` : p.textColor === ETextColor.gray ? `color: ${p.theme.colors.gray};` : ""}
+	${p.textColor === ETextColor.white ? `color: #FFF;` : p.textColor === ETextColor.orange ? `color: #f1802d;` : p.textColor === ETextColor.green ? `color: ${p.theme.colors.green};` : p.textColor === ETextColor.red ? `color: ${p.theme.colors.negative};` : p.textColor === ETextColor.textBlue ? `color: ${p.theme.colors.textBlue};` : p.textColor === ETextColor.gray ? `color: ${p.theme.colors.gray};` : ""}
 
 	${p.weight ? `font-family: GellixSemiBold !important;` : ""}
 	`;

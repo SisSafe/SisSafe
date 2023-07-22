@@ -6,14 +6,14 @@ interface SizeProps {
 }
 
 export const Input = styled.input<SizeProps>`
-  border: 1px solid ${(p) => p.theme.colors.secondary};
+  border: 1px solid ${(p) => p.theme.colors.primary};
   border-radius: ${({ theme }) => theme.radius.m};
   width: ${({ theme, size }) => size ? size : '326px'};
   height: 50px;
   padding: ${({ theme }) => theme.spacing.xs};
-  color: ${(p) => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.primary};
   &::placeholder {
-    color: ${(p) => p.theme.colors.secondary};
+    color: ${(p) => p.theme.colors.primary};
     font-size: ${(p) => p.theme.fontSize.m};
   }
   @media(max-width:${EMediaQuery.md}) {

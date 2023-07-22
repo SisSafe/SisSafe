@@ -70,7 +70,7 @@ export enum ETextColor {
 	gray = "gray",
 	textBlue = "textBlue",
 	green = "green",
-	blue = "blue",
+	orange = "orange",
 }
 
 export enum EMediaQuery {

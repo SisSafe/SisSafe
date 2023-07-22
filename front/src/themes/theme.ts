@@ -70,7 +70,7 @@ export const lightTheme: DefaultTheme = {
 		accent: "#43A591",
 		negative: "#E35656",
 		primary: "#120309",
-		secondary: "#B9C2E2",
+		secondary: "#f1802d",
 		gray: "#80829E",
 		deepBlue: "#13203d",
 		lightBlue: "#E0E8F0",

@@ -1,7 +1,7 @@
 import React from 'react'
 import { SMainWrapperFooter, SImageHeader } from './s-components/s-footer'
 import { Flex } from 'components/library/Flex'
-import { EFlex, ETextColor, ESize } from "../../utils/Enums"
+import { EFlex, ETextColor, ESize, ETextType } from "../../utils/Enums"
 import styled from 'styled-components'
 import { OText } from 'components/library/OText'
 import { BsDiscord, BsTwitter } from 'react-icons/bs';
@@ -48,7 +48,7 @@ function Footer() {
     <SMainWrapperFooter>
       <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
         <ColLeft>
-          <OText textColor={ETextColor.white} size={ESize.m}>© 2023 Hack Melon</OText>
+          <OText textColor={ETextColor.white} size={ESize.m}>© 2023 Hack <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Melon</OText></OText>
         </ColLeft>
       </Flex>
     </SMainWrapperFooter>

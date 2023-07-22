@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useState } from "react";
 import { OButton } from './library/OButton';
 import { OText } from './library/OText';
-import { EBackgroundColor, ESize, ETextAlign, ETextColor, ETextWeight } from '../utils/Enums';
+import { EBackgroundColor, ESize, ETextAlign, ETextColor, ETextWeight, ETextType } from '../utils/Enums';
 import Header from './header'
 import Footer from './footer';
 import { Input } from './library/Input';
@@ -77,6 +77,10 @@ export const PageHome: React.FC<IHomePage> = () => {
   const { setData, data } = useContext(UserContext);
   const { address: account, isConnected } = useAccount();
   const [res, setRes] = useState<SismoConnectResponse>()
+
+  console.log(res)
+  console.log(data)
+
   return (
     <>
       <Head>
@@ -90,9 +94,9 @@ export const PageHome: React.FC<IHomePage> = () => {
         <Flex direction={EFlex.column} horizontal={EFlex.center} vertical={EFlex.center}>
           <Spacing size={ESize.s} />
           {!data ?
-            <OText size={ESize.xl} weight={ETextWeight.bold} >Welcome to Melon</OText>
+            <OText size={ESize.xl} weight={ETextWeight.bold} >Welcome to <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Melon</OText></OText>
             :
-            <OText size={ESize.xl} weight={ETextWeight.bold} textColor={ETextColor.white}>Welcome to your Vault</OText>
+            <OText size={ESize.xl} weight={ETextWeight.bold} textColor={ETextColor.white}>Welcome to your <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Vault</OText></OText>
           }
           <Wrapper>
             {!data ? <VaultDoor /> : <VaultDoor reverse />}
@@ -122,7 +126,7 @@ export const PageHome: React.FC<IHomePage> = () => {
                 data ?
                   <Card>
                     <OText textAlign={ETextAlign.center}>
-                      You are connected with sismo.
+                      You are connected with <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Sismo</OText>.
                     </OText>
                     <Spacing size={ESize.s} />
                     <Gap>
