@@ -1,0 +1,60 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x0e8a2227293c817272F19ea2d28e9Db41746b235",
+      "txHash": "0xcce0291298be12ecf54ca82f753cd6af7be08e97b0daaced3882e402e5698a9f",
+      "kind": "uups"
+    }
+  ],
+  "impls": {
+    "b466d4749f69f2e41426fcd049173fd10868278679c69fc04f0144e3e3627f9e": {
+      "address": "0xCD1c5a7ccCc778Fd8a50BA2Ad9b195215862Edae",
+      "txHash": "0xdb053f4f19ca23d3af314ebd74af0bc9e86e188a1078b9f864fe031aabb94f08",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "owner",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_address",
+            "contract": "NewAccount",
+            "src": "contracts/newAccount.sol:24"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}

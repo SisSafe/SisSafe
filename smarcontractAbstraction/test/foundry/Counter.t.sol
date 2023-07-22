@@ -2,23 +2,25 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../../contracts/Counter.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/proxy/transparent/ProxyAdmin.sol";
+import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
+import "../../contracts/newAccount.sol";
+import "../../contracts/interfaces/IEntryPoint.sol";
 
-contract CounterTest is Test {
-    Counter public counter;
+interface INewAccount {
+    function initialize(address) external;
+}
 
-    function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
-    }
+contract ContractTest is Test {
+    ProxyAdmin public adminProxy = new ProxyAdmin();
+    bytes public bytesToSend = new bytes(0);
+    NewAccount public accountIface = new NewAccount(IEntryPoint(address(0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789)));
 
-    function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
-
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
-    }
+    bytes initializing = abi.encodeWithSelector(INewAccount.initialize.selector, address(1));
+    TransparentUpgradeableProxy public vaultRaw = new TransparentUpgradeableProxy(
+      address(accountIface),
+      address(adminProxy),
+      initializing
+    );
 }
