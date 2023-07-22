@@ -1,10 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 interface CardProps {
   backgroundColor?: string;
   paddingSize?: string;
   isDisabled?: boolean; // New prop for disabling/enabling opacity
+  anim?: boolean;
 }
+
+const fadeIn = keyframes`
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const Card = styled.div<CardProps>`
   background-color: ${({ theme, backgroundColor }) =>
@@ -13,7 +23,7 @@ export const Card = styled.div<CardProps>`
   border-radius: ${({ theme }) => theme.radius.xl};
   border: 1px solid ${({ theme }) => theme.colors.lightGray};
   width: 100%;
-
+  animation: ${({ anim }) => anim ? css`${fadeIn} 5s ease-out forwards` : 'none'};
   /* Apply opacity when isDisabled is true */
   ${({ isDisabled }) =>
     isDisabled &&

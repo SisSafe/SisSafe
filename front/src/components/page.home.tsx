@@ -124,9 +124,15 @@ export const PageHome: React.FC<IHomePage> = () => {
                 /> :
 
                 data ?
-                  <Card>
+                  <Card anim>
                     <OText textAlign={ETextAlign.center}>
-                      You are connected with <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Sismo</OText>.
+                      You are connected with
+                      <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>Sismo</OText>
+                      .
+                    </OText>
+                    <Spacing size={ESize.s} />
+                    <OText textAlign={ETextAlign.center}>
+                      Your rank: <OText type={ETextType.span} textColor={ETextColor.orange} size={ESize.m}>4</OText>
                     </OText>
                     <Spacing size={ESize.s} />
                     <Gap>

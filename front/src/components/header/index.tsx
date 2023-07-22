@@ -30,6 +30,8 @@ function Header() {
   const [rightNetwork, setRightNetwork] = useState<boolean | null>(null);
   const { data } = useContext(UserContext);
 
+  console.log(chain)
+  console.log(chains)
   useEffect(() => {
     setRightNetwork(chains.some(x => x.id === chain?.id));
   }, [chain])
