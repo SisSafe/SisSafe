@@ -238,7 +238,6 @@ export const PageHome: React.FC<IHomePage> = () => {
             <ButtonWrapper>
               {isConnected && Object.keys(melonData).length === 0 ?
                 <>
-
                   <SismoConnectButton
                     config={config}
                     auth={{ authType: AuthType.EVM_ACCOUNT }}

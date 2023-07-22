@@ -105,23 +105,24 @@ export const RankChoices2: React.FC<IRankChoices> = ({ rank, openChoice, setOpen
           </OText>
           <Spacing size={ESize.s} />
           <Relative>
-            <CardExpend title='Options'>
+            <Card>
+              <OText>Options</OText>
               <Spacing size={ESize.s} />
               <Column onClick={handleChildClick} gapSize='30px'>
-                <BlockSize size='100%' onClick={() => setOpportunity(1)}>
+                <BlockSize style={{ cursor: 'pointer' }} size='100%' onClick={() => setOpportunity(1)}>
                   <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                     <OText weight={ETextWeight.bold} size={ESize.ml}>Distribute airdrop</OText>
                     <BsArrowRightShort />
                   </Flex>
                 </BlockSize>
-                <BlockSize size='100%' onClick={() => setOpportunity(2)}>
+                <BlockSize style={{ cursor: 'pointer' }} size='100%' onClick={() => setOpportunity(2)}>
                   <Flex direction={EFlex.row} horizontal={EFlex.between} vertical={EFlex.center} fullwidth>
                     <OText weight={ETextWeight.bold} size={ESize.ml}>Upgrade rank</OText>
                     <BsArrowRightShort />
                   </Flex>
                 </BlockSize>
               </Column>
-            </CardExpend>
+            </Card>
           </Relative>
         </Card>
         : opportunity === 1 ?

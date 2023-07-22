@@ -119,7 +119,8 @@ export const RankChoices1: React.FC<IRankChoices> = ({ rank, openChoice, setOpen
           </OText>
           <Spacing size={ESize.s} />
           <Relative>
-            <CardExpend title='Options'>
+            <Card>
+              <OText>Options</OText>
               <Spacing size={ESize.s} />
               <Column onClick={handleChildClick} gapSize='30px'>
                 <BlockSize size='100%' onClick={() => setOpportunity(1)}>
@@ -135,7 +136,7 @@ export const RankChoices1: React.FC<IRankChoices> = ({ rank, openChoice, setOpen
                   </Flex>
                 </BlockSize>
               </Column>
-            </CardExpend>
+            </Card>
           </Relative>
         </Card>
         : opportunity === 1 ?
