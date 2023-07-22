@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useState } from "react";
 import { OButton } from './library/OButton';
 import { OText } from './library/OText';
-import { EBackgroundColor, ESize, ETextAlign, ETextWeight } from '../utils/Enums';
+import { EBackgroundColor, ESize, ETextAlign, ETextColor, ETextWeight } from '../utils/Enums';
 import Header from './header'
 import Footer from './footer';
 import { Input } from './library/Input';
@@ -16,6 +16,8 @@ import { useAccount } from "wagmi";
 import { UserContext } from "context";
 import { useContext } from "react";
 import VaultDoor from './library/Vault';
+import { Card } from './library/Card';
+import { Gap } from './library/Gap';
 
 const config: SismoConnectConfig = {
   // you will need to get an appId from the Factory
@@ -36,14 +38,19 @@ const config: SismoConnectConfig = {
   // },
 }
 interface IHomePage { }
+interface IWrapperProps {
+  connected?: boolean;
+}
 
-const SMainWrapper = styled.div`
+
+const SMainWrapper = styled.div<IWrapperProps>`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
   overflow: hidden;
   position: relative;
+  background-color: ${({ connected, theme }) => connected ? theme.colors.deepBlue : 'none'};
 `;
 
 const Wrapper = styled.div`
@@ -78,14 +85,14 @@ export const PageHome: React.FC<IHomePage> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SMainWrapper>
+      <SMainWrapper connected={data ? true : false}>
         <Header />
         <Flex direction={EFlex.column} horizontal={EFlex.center} vertical={EFlex.center}>
-          <Spacing size={ESize.l} />
+          <Spacing size={ESize.s} />
           {!data ?
             <OText size={ESize.xl} weight={ETextWeight.bold} >Welcome to Melon</OText>
             :
-            <OText size={ESize.xl} weight={ETextWeight.bold} >Welcome to your Vault</OText>
+            <OText size={ESize.xl} weight={ETextWeight.bold} textColor={ETextColor.white}>Welcome to your Vault</OText>
           }
           <Wrapper>
             {!data ? <VaultDoor /> : <VaultDoor reverse />}
@@ -113,9 +120,16 @@ export const PageHome: React.FC<IHomePage> = () => {
                 /> :
 
                 data ?
-                  <OText textAlign={ETextAlign.center}>
-                    You are connected with sismo.
-                  </OText>
+                  <Card>
+                    <OText textAlign={ETextAlign.center}>
+                      You are connected with sismo.
+                    </OText>
+                    <Spacing size={ESize.s} />
+                    <Gap>
+                      <Input placeholder='price' />
+                      <OButton>Submit</OButton>
+                    </Gap>
+                  </Card>
                   :
                   <>
                     <OText textAlign={ETextAlign.center}>

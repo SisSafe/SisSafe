@@ -2,13 +2,18 @@ import styled from 'styled-components';
 import Image from 'next/image'
 import { EMediaQuery } from 'utils/Enums';
 
-export const SMainWrapperHeader = styled.div`
+
+interface IWrapperProps {
+  connected?: boolean;
+}
+export const SMainWrapperHeader = styled.div<IWrapperProps>`
   display: flex;
   justify-content: space-between;
   align-items:center;
   padding: 24px 60px;
   height: 80px;
   background-color: #FFF;
+  background-color: ${({ connected, theme }) => connected ? theme.colors.deepBlue : ' #FFF'};
   @media(max-width:${EMediaQuery.md}) {
     padding: 24px 20px;
   }

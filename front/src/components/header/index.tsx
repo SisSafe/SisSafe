@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   SMainWrapperHeader,
   SImageHeader,
@@ -14,12 +14,11 @@ import {
   ETextWeight,
   ETextType,
 } from "utils/Enums";
-import { useRouter } from "next/router";
 import { OButton } from "components/library/OButton";
 import { useConnect, useDisconnect, useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { formatAddress } from "utils";
-import MelonLogo from "../../assets/images/melon.png"
-
+import MelonLogo from "../../assets/images/melon1.png"
+import { UserContext } from "context";
 
 function Header() {
   const { connect, connectors } = useConnect()
@@ -29,22 +28,14 @@ function Header() {
   const { chain } = useNetwork()
   const { chains } = useSwitchNetwork()
   const [rightNetwork, setRightNetwork] = useState<boolean | null>(null);
+  const { data } = useContext(UserContext);
 
-  // useEffect(() => {
-  //   const checkNetwork = () => {
-  //     chains.map((x) => {
-  //       x.id === chain?.id ? setRightNetwork(true) : setRightNetwork(false);
-  //     })
-  //   }
-  //   checkNetwork()
-  // }, [chain])
   useEffect(() => {
     setRightNetwork(chains.some(x => x.id === chain?.id));
   }, [chain])
 
-  console.log(rightNetwork)
   return (
-    <SMainWrapperHeader>
+    <SMainWrapperHeader connected={data ? true : false}>
       <LeftCol>
         <SImageHeader src={MelonLogo} alt="MelonLogo" />
       </LeftCol>
