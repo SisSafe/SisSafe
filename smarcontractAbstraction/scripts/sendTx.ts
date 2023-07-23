@@ -58,9 +58,16 @@ async function main() {
       entryPoint: entryPointAddress,
     }
   );
+  const N = await ethers.getContractFactory("NewAccount");
+  const abstractWallet = new ethers.utils.Interface(N.interface);
 
   smartAccount.setVerificationGasLimit("50000");
   smartAccount.setSender(account);
+  const allData = abstractWallet.encodeFunctionData("execute", [
+    owner.address,
+    ethers.utils.parseEthers("0.01"),
+  ]);
+  console.log("alldata", allData);
 
   //   const bundlerRpcUrl = "https://mumbai.voltaire.candidewallet.com/rpc";
   // const builder = new UserOperationBuilder().useDefaults({  });
@@ -88,7 +95,11 @@ async function main() {
   // });
   // Deploying
   smartAccount.setInitCode("0x");
-  const exec = smartAccount.execute(smartAccount.getSender(), 0, "0x");
+  const exec = smartAccount.execute(
+    smartAccount.getSender(),
+    ethers.parseEthers("0.01"),
+    "0x"
+  );
   exec.setInitCode("0x");
   // console.log()
   fs.writeFile("exec.json", JSON.stringify(exec), (err: any) => {
