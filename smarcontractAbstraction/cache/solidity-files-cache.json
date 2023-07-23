@@ -447,8 +447,8 @@
       ]
     },
     "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/Melon.sol": {
-      "lastModificationDate": 1690079667749,
-      "contentHash": "0fda5563af0b30ed8bc4915808b6a37a",
+      "lastModificationDate": 1690080528329,
+      "contentHash": "7958af01930fd69942be283be1d4edcc",
       "sourceName": "contracts/Melon.sol",
       "solcConfig": {
         "version": "0.8.18",
