@@ -156,8 +156,9 @@ export const RankChoices1: React.FC<IRankChoices> = ({ rank, openChoice, setOpen
                       <OButton onClick={() => handleButtonClick(question, 'No')} selected={selectedButtons[question] === 'No'}>No</OButton>
                     </Gap>
                     <Gap onClick={handleChildClick} center>
-                      <Input placeholder='amount' />
-                      <OButton>$MELON</OButton>
+                      {/* <Input placeholder='amount' />
+                      <OButton>$MELON</OButton> */}
+                      <OText weight={ETextWeight.bold} size={ESize.m}>Your weight: 100 $MELON</OText>
                     </Gap>
                   </Column>
                 </CardExpend>
@@ -177,8 +178,7 @@ export const RankChoices1: React.FC<IRankChoices> = ({ rank, openChoice, setOpen
                 <OText>Claim</OText>
                 <Spacing size={ESize.s} />
                 <Gap onClick={handleChildClick} center>
-                  <Input placeholder='100' />
-                  <OButton>$MELON</OButton>
+                  <OButton>100 $MELON</OButton>
                 </Gap>
               </Column>
             </Card>
