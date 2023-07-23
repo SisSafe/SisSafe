@@ -133,7 +133,7 @@ export const PageHome: React.FC<IHomePage> = () => {
   const [open, setOpen] = useState(false)
   const [openChoice, setOpenChoice] = useState(false)
   const [opportunity, setOpportunity] = useState<number>(0)
-
+  console.log('data', data)
   useEffect(() => {
     if (data) {
       try {
@@ -145,7 +145,7 @@ export const PageHome: React.FC<IHomePage> = () => {
             melonABI,
             provider.getSigner()
           );
-          const result = await contract.melonAction(data, account);
+          const result = await contract.melonAction(data, rank, account, 0, "0x0000000000000000000000000000000000000000000000000000000000000000");
           setMelonData(result)
         }
         Object.keys(melonData).length === 0 && authentifyUser()
@@ -241,7 +241,10 @@ export const PageHome: React.FC<IHomePage> = () => {
                   <SismoConnectButton
                     config={config}
                     auth={{ authType: AuthType.EVM_ACCOUNT }}
+
                     claim={{ groupId: "0xcaa596ba15aabc88ff17c89b6f94d3ef", value: Number(rank) }}
+                    // claim={{ groupId: "0xfe1413ffa36359541aeb8a4edea0ee4a", value: Number(rank) }}
+
                     signature={{ message: signMessage(account as string) }}
                     onResponse={async (response: SismoConnectResponse) => {
                       setRes(response)
