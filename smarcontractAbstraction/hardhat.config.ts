@@ -11,7 +11,7 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
         forking: {
-            url: `https://eth-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_PROJECT_ID}`,
+            url: `https://rpc.ankr.com/polygon_mumbai`,
         },
     },
     gnosis: {

@@ -5,10 +5,13 @@ async function main() {
     const [deployer] = await ethers.getSigners();
     console.log("Deployer account:", deployer.address);
 
-    const melon = await attach("Melon", "0x061F33c8594f24e475958CD2bf442C51F5E49bf1");
+    const melon = await attach("Melon", "0xd706B5A75713446A0fd42A636d092Be72737259d");
 
-    console.log(await melon.lastResult());
-    console.log(await melon.lastAuth());
+    let tx = await melon.refundGas();
+
+    await tx.wait();
+
+    console.log(await melon.hello());
 }
 
 const attach = async (factory: any, address: any) => {

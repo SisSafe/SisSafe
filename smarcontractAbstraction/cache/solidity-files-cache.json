@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/contracts/BaiscDAO.sol": {
-      "lastModificationDate": 1690077543793,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/BaiscDAO.sol": {
+      "lastModificationDate": 1690078099296,
       "contentHash": "41246b7f051b525af7c9d0dd7007e5e6",
       "sourceName": "contracts/BaiscDAO.sol",
       "solcConfig": {
@@ -39,9 +39,9 @@
         "DAO"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/SismoConnectLib.sol": {
-      "lastModificationDate": 1690074959901,
-      "contentHash": "e195752e733512c63aba37f8c1b4d108",
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/SismoConnectLib.sol": {
+      "lastModificationDate": 1689982582448,
+      "contentHash": "c013e0a936441dea47b89b3c5d0e26cb",
       "sourceName": "lib/sismo-connect-solidity/src/SismoConnectLib.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -83,8 +83,8 @@
         "SismoConnect"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1690074375875,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1690040542445,
       "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -120,82 +120,8 @@
         "Ownable"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/ClaimRequestBuilder.sol": {
-      "lastModificationDate": 1690074959902,
-      "contentHash": "2ab09a091a73dc2fb61e2e2f100ec39a",
-      "sourceName": "lib/sismo-connect-solidity/src/utils/ClaimRequestBuilder.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./Structs.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.17"
-      ],
-      "artifacts": [
-        "ClaimRequestBuilder"
-      ]
-    },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/AuthRequestBuilder.sol": {
-      "lastModificationDate": 1690074959902,
-      "contentHash": "73c0a1ab84e333f625d31e9acb389b1d",
-      "sourceName": "lib/sismo-connect-solidity/src/utils/AuthRequestBuilder.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./Structs.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.17"
-      ],
-      "artifacts": [
-        "AuthRequestBuilder"
-      ]
-    },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/RequestBuilder.sol": {
-      "lastModificationDate": 1690074959902,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/RequestBuilder.sol": {
+      "lastModificationDate": 1689982582451,
       "contentHash": "e07e0b89ff7d1c835fc98852f61e0d9f",
       "sourceName": "lib/sismo-connect-solidity/src/utils/RequestBuilder.sol",
       "solcConfig": {
@@ -232,9 +158,79 @@
         "RequestBuilder"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/interfaces/ISismoConnectVerifier.sol": {
-      "lastModificationDate": 1690074959901,
-      "contentHash": "2db7d0f596b38ccd2a6677d68126706c",
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/AuthRequestBuilder.sol": {
+      "lastModificationDate": 1689982582450,
+      "contentHash": "73c0a1ab84e333f625d31e9acb389b1d",
+      "sourceName": "lib/sismo-connect-solidity/src/utils/AuthRequestBuilder.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Structs.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "AuthRequestBuilder"
+      ]
+    },
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/Structs.sol": {
+      "lastModificationDate": 1689982582452,
+      "contentHash": "f538ea31afd433fc1f608a8c3f401bb1",
+      "sourceName": "lib/sismo-connect-solidity/src/utils/Structs.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": []
+    },
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/interfaces/ISismoConnectVerifier.sol": {
+      "lastModificationDate": 1689982582449,
+      "contentHash": "eee8cabac5b213ec622aff5b5ece70cb",
       "sourceName": "lib/sismo-connect-solidity/src/interfaces/ISismoConnectVerifier.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -269,43 +265,8 @@
         "ISismoConnectVerifier"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/interfaces/IAddressesProvider.sol": {
-      "lastModificationDate": 1690074959901,
-      "contentHash": "b110c7fc3d5c451ab70674c4041f7307",
-      "sourceName": "lib/sismo-connect-solidity/src/interfaces/IAddressesProvider.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.17"
-      ],
-      "artifacts": [
-        "IAddressesProvider"
-      ]
-    },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/SignatureBuilder.sol": {
-      "lastModificationDate": 1690074959903,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/SignatureBuilder.sol": {
+      "lastModificationDate": 1689982582451,
       "contentHash": "a9bf01e761b0642f37c820d0b332caf5",
       "sourceName": "lib/sismo-connect-solidity/src/utils/SignatureBuilder.sol",
       "solcConfig": {
@@ -341,8 +302,43 @@
         "SignatureBuilder"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/SismoConnectHelper.sol": {
-      "lastModificationDate": 1690074959903,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/interfaces/IAddressesProvider.sol": {
+      "lastModificationDate": 1689982582448,
+      "contentHash": "b110c7fc3d5c451ab70674c4041f7307",
+      "sourceName": "lib/sismo-connect-solidity/src/interfaces/IAddressesProvider.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "IAddressesProvider"
+      ]
+    },
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/SismoConnectHelper.sol": {
+      "lastModificationDate": 1689982582451,
       "contentHash": "095dc35a42bfde82d7a2aa46313341ff",
       "sourceName": "lib/sismo-connect-solidity/src/utils/SismoConnectHelper.sol",
       "solcConfig": {
@@ -378,10 +374,10 @@
         "SismoConnectHelper"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/Structs.sol": {
-      "lastModificationDate": 1690074959903,
-      "contentHash": "f538ea31afd433fc1f608a8c3f401bb1",
-      "sourceName": "lib/sismo-connect-solidity/src/utils/Structs.sol",
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/lib/sismo-connect-solidity/src/utils/ClaimRequestBuilder.sol": {
+      "lastModificationDate": 1689982582450,
+      "contentHash": "2ab09a091a73dc2fb61e2e2f100ec39a",
+      "sourceName": "lib/sismo-connect-solidity/src/utils/ClaimRequestBuilder.sol",
       "solcConfig": {
         "version": "0.8.18",
         "settings": {
@@ -405,14 +401,18 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "./Structs.sol"
+      ],
       "versionPragmas": [
         "^0.8.17"
       ],
-      "artifacts": []
+      "artifacts": [
+        "ClaimRequestBuilder"
+      ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1690074375885,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1690040542304,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -446,9 +446,9 @@
         "Context"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/contracts/Melon.sol": {
-      "lastModificationDate": 1690077498422,
-      "contentHash": "2864b683b64afc8a447c962d8ca92a17",
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/Melon.sol": {
+      "lastModificationDate": 1690079667749,
+      "contentHash": "0fda5563af0b30ed8bc4915808b6a37a",
       "sourceName": "contracts/Melon.sol",
       "solcConfig": {
         "version": "0.8.18",
@@ -480,49 +480,14 @@
         "./interfaces/IERC20.sol"
       ],
       "versionPragmas": [
-        "^0.8.9"
+        "^0.8.0"
       ],
       "artifacts": [
         "Melon"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/contracts/interfaces/IERC20.sol": {
-      "lastModificationDate": 1690069451171,
-      "contentHash": "993b1f284820afdddec345417b0ca141",
-      "sourceName": "contracts/interfaces/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.18",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.9"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/contracts/interfaces/IDAO.sol": {
-      "lastModificationDate": 1690069451171,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/interfaces/IDAO.sol": {
+      "lastModificationDate": 1690064527386,
       "contentHash": "a48f2bffb5bffd75dc8d6c1d2ded2c8d",
       "sourceName": "contracts/interfaces/IDAO.sol",
       "solcConfig": {
@@ -556,8 +521,43 @@
         "IDAO"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/contracts/factory.sol": {
-      "lastModificationDate": 1690073816368,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1690064535006,
+      "contentHash": "993b1f284820afdddec345417b0ca141",
+      "sourceName": "contracts/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.18",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.9"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/factory.sol": {
+      "lastModificationDate": 1690069297202,
       "contentHash": "20aa210d027e0a345f054aebd27daffb",
       "sourceName": "contracts/factory.sol",
       "solcConfig": {
@@ -593,8 +593,8 @@
         "MelonFactory"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/contracts/Counter.sol": {
-      "lastModificationDate": 1690069632766,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/Counter.sol": {
+      "lastModificationDate": 1690064527375,
       "contentHash": "eb24df751d340e9978023567f850b606",
       "sourceName": "contracts/Counter.sol",
       "solcConfig": {
@@ -628,8 +628,8 @@
         "Counter"
       ]
     },
-    "/Users/nigelbook/sissafe/SisSafe/smarcontractAbstraction/contracts/Lock.sol": {
-      "lastModificationDate": 1690073816368,
+    "/Users/clement/Desktop/hackathons/SisSafe/smarcontractAbstraction/contracts/Lock.sol": {
+      "lastModificationDate": 1690064527375,
       "contentHash": "57d58d406d0752b7d0ffde073aea607d",
       "sourceName": "contracts/Lock.sol",
       "solcConfig": {

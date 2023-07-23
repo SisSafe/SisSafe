@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.0;
 
 import "../lib/sismo-connect-solidity/src/SismoConnectLib.sol";
 import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
@@ -41,14 +41,6 @@ contract Melon is Ownable, SismoConnect {
         }
     }
 
-    function refundGas() private {
-        uint256 gasSpent = gasleft();
-
-        (bool success,) = payable(msg.sender).call{value: gasSpent * tx.gasprice}("");
-
-        require(success, "Ethers transfer failed");
-    }
-
     function melonAction(bytes memory response, uint256 _rank, address _wallet, uint256 _id, bytes32 _arg)
         external
         returns (SismoConnectVerifiedResult memory result)
@@ -66,7 +58,6 @@ contract Melon is Ownable, SismoConnect {
         );
         actionDone[_id][result.auths[0].userId]++;
         IDAO(contracts[_id]).MelonAction(result.claims[0].value, _wallet, _arg);
-        refundGas();
     }
 
     function giveAction(uint256 _minRank, uint256 _maxNumberActions, address _contract) external onlyOwner {
