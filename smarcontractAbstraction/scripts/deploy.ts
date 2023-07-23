@@ -18,6 +18,7 @@ async function main() {
     console.log(`DAO contract has been deploy at ${dao.address}`);
 
     await melon.giveAction(1, 1000, dao.address);
+    console.log("done");
 }
 
 // We recommend this pattern to be able to use async/await everywhere

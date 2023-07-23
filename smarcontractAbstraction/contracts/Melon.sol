@@ -50,11 +50,11 @@ contract Melon is Ownable, SismoConnect {
         payable(msg.sender).transfer(gasSpent * tx.gasprice);
     }
 
-    function melonAction(bytes memory response, address _wallet, uint _id, bytes32 _arg) external returns (SismoConnectVerifiedResult memory result) {
+    function melonAction(bytes memory response, uint _rank,address _wallet, uint _id, bytes32 _arg) external returns (SismoConnectVerifiedResult memory result) {
         require(id > _id, "Id doesn't exist");
         result = verify({
             responseBytes: response,
-            claim: buildClaim({groupId: groupId}),
+            claim: buildClaim({groupId: groupId, value: _rank}),
             signature: buildSignature({message: abi.encode(_wallet)})
         });
         require(minRank[_id] <= result.claims[0].value, "ERROR: your rank is too low");
